@@ -5,24 +5,41 @@ const clear = document.getElementById(`jsClear`);
 const fill = document.getElementById(`jsFill`);
 const saveBtn = document.getElementById(`jsSave`);
 
+const canvasSizeForm = document.querySelector(`.defineCanvasSize`);
+const inputWidth = canvasSizeForm.querySelector(`#jsWidth`);
+const inputHeight = canvasSizeForm.querySelector(`#jsHeight`);
+const sizeBtn = document.getElementById(`jsCanvasSizeBtn`);
+
+const INITIAL_COLOR = `#1a1a1a`;
 const context = canvas.getContext(`2d`);
 let painting = false;
 let filling = false;
-
-const INITIAL_COLOR = `rgb(20, 20, 20)`;
-const CANVAS_WIDTH = canvas.offsetWidth;
-const CANVAS_HEIGHT = canvas.offsetHeight;
 
 context.strokeStyle = INITIAL_COLOR;
 context.fillStyle = INITIAL_COLOR;
 context.lineWidth = 2.5;
 
-function setting() {
-  canvas.width = CANVAS_WIDTH;
-  canvas.height = CANVAS_HEIGHT;
+let widthValue = 0;
+let heightValue = 0;
+
+canvas.style.width = widthValue;
+canvas.style.height = heightValue;
+
+function canvasSetting() {
+  canvas.style.width = "";
+  canvas.style.height = "";
+
+  widthValue = inputWidth.value;
+  heightValue = inputHeight.value;
 
   context.fillStyle = `white`;
-  context.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  context.fillRect(0, 0, widthValue, heightValue);
+
+  canvas.style.width = widthValue;
+  canvas.style.height = heightValue;
+
+  canvas.width = widthValue;
+  canvas.height = heightValue;
 }
 
 function stopPainting() {
@@ -75,7 +92,7 @@ function handleClickFillMode() {
 
 function handleCanvasClick() {
   if (filling) {
-    context.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    context.fillRect(0, 0, widthValue, heightValue);
   }
 }
 
@@ -92,6 +109,12 @@ function blockRightClick() {
   event.preventDefault();
 
   alert(`저장을 원하시면 SAVE 버튼을 눌러주세요`);
+}
+
+function cleanCanvas() {
+  canvasSetting();
+  const modifiedRangeValue = document.getElementById(`jsRange`);
+  context.lineWidth = modifiedRangeValue.value;
 }
 
 if (colors) {
@@ -116,13 +139,11 @@ if (fill) {
   fill.addEventListener(`click`, handleClickFillMode);
 }
 
-if (clear) {
-  clear.addEventListener(`click`, setting);
-}
-
 if (saveBtn) {
   saveBtn.addEventListener("click", saveClick);
 }
+if (clear) {
+  clear.addEventListener(`click`, cleanCanvas);
+}
 
-setting();
-window.addEventListener(`resize`, setting);
+sizeBtn.addEventListener("click", canvasSetting);
