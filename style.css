@@ -13,7 +13,7 @@ body {
 
 #title {
   width: 100vw;
-  margin-bottom: 2vh;
+  margin-bottom: 1vh;
 }
 
 #title h1 {
@@ -32,13 +32,43 @@ body {
 }
 
 .defineCanvasSize input {
-  width: 295px;
+  width: 290px;
   height: 30px;
+  color: white;
   text-align: center;
-  font-size: 15px;
-  border-style: none;
+  font-size: 17px;
+  border-top: unset;
+  border-left: unset;
+  border-right: unset;
+  border-bottom-color: #f3f3f3;
+  background-color: unset;
   margin-top: 10px;
   padding: 0px 5px 5px 0px;
+}
+
+.defineCanvasSize input:focus {
+  outline: none;
+}
+
+.defineCanvasSize input:focus::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: transparent;
+}
+.defineCanvasSize input:focus:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: transparent;
+}
+.defineCanvasSize input:focus::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: transparent;
+}
+.defineCanvasSize input:focus:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: transparent;
+}
+
+.defineCanvasSize input::placeholder {
+  color: white;
 }
 
 .sizeButton {
@@ -52,7 +82,11 @@ body {
   text-transform: uppercase;
   font-weight: 300;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(50, 50, 90, 0.07), 0 0px 5px rgba(50, 50, 90, 0.18);
+  box-shadow: 0 4px 6px rgba(50, 50, 90, 0.07);
+}
+.sizeButton:hover {
+  transform: translate(0px, -1px);
+  box-shadow: 0 7px 8px rgba(79, 79, 121, 0.03);
 }
 .sizeButton:active {
   transform: scale(0.98);
@@ -87,7 +121,12 @@ body {
   border-radius: 8px;
   text-transform: uppercase;
   font-weight: 300;
-  box-shadow: 0 4px 6px rgba(50, 50, 90, 0.07), 0 0px 5px rgba(50, 50, 90, 0.18);
+  box-shadow: 0 4px 6px rgba(50, 50, 90, 0.07);
+}
+
+.controls_btns button:hover {
+  transform: translate(0px, -1px);
+  box-shadow: 0 7px 8px rgba(79, 79, 121, 0.03);
 }
 
 .controls_btns button:active {
@@ -99,7 +138,13 @@ body {
 }
 
 .controls .controls_colors {
+  height: 10vh;
+  padding: 10px;
   display: flex;
+  align-items: center;
+  border-radius: 3vh;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 6px rgba(50, 50, 90, 0.12), 0 0px 5px rgba(50, 50, 90, 0.09);
 }
 
 .controls_colors .controls_color {
@@ -140,7 +185,7 @@ body {
   }
 
   .defineCanvasSize input {
-    width: 80vw;
+    width: 79vw;
     height: 40px;
   }
 
@@ -149,17 +194,27 @@ body {
     padding: 12px 0px;
   }
 
+  .controls .controls_range {
+    margin: -10px 0 15px 0;
+  }
+
   .controls {
     margin-top: 3vh;
   }
 
-  .controls_colors {
-    margin-top: 0.5vh;
+  .controls .controls_colors {
+    width: 100vw;
+    height: 15vw;
+    bottom: 0;
+    position: fixed;
+    border-radius: unset;
+    box-shadow: none;
   }
 
   .controls_colors .controls_color {
     width: 9vw;
     height: 9vw;
     border-radius: 4.5vw;
+    margin: 0 auto;
   }
 }
