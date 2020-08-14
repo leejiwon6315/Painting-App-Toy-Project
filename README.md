@@ -154,7 +154,9 @@ function blockRightClick() {
   alert(`저장을 원하시면 SAVE 버튼을 눌러주세요`);
 }
 ```
-저장을 하는 Save 버튼의 saveClick 함수와, 마우스 오른쪽으로 저장하는 것을 방지하기 위한 blockRightClick 함수 입니다.
+저장을 하는 Save 버튼의 saveClick 함수와, 마우스 오른쪽으로 저장하는 것을 방지하기 위한 blockRightClick 함수 입니다.<br/>
+기본적으로 png 파일로 저장이 가능하고, Paint JS by JIREH's Canvas 라는 파일명으로 저장됩니다.<br/>
+*JIREH : 작성자 본인의 아티스트, 디자이너 시절 활동명
 <br/><br/>
 ```
 function cleanCanvas() {
@@ -198,5 +200,8 @@ if (clear) {
 sizeBtn.addEventListener("click", canvasSetting);
 ```
 버튼 클릭 시 발생하는 이벤트들의 정의입니다.
+<br/><br/>
+### 제작한 웹으로 그린 그림<br/>
+<img width="800" alt="스크린샷 2020-08-14 오후 5 42 45" src="https://user-images.githubusercontent.com/60544994/90231108-9c0e7100-de55-11ea-96f2-1d8d1c75d3b1.png"></img>
 
 
