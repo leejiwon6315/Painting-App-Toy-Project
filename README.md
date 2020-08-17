@@ -1,5 +1,6 @@
 # 🖍 Painting-App-Toy-Project 🖍
-> Vanilla JS 로 제작한 반응형 그림판 웹입니다 
+> Vanilla JS 로 제작한 반응형 그림판 웹입니다. <br/>
+> 출처: 노마드코더 강의 활용
 
 ### 캔버스 크기 입력 전(웹 실행 시)<br/>
 <img width="306" alt="app_size1" src="https://user-images.githubusercontent.com/60544994/90227861-366bb600-de50-11ea-9e2b-b12faa5fdc77.png"></img>
